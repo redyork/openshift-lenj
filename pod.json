@@ -1,0 +1,63 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "lenj2",
+    "creationTimestamp": null,
+    "labels": {
+      "name": "config-server"
+    }
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "config-server",
+        "image": "yorkred/lenj4",
+        "ports": [
+          {
+            "containerPort": 88,
+            "protocol": "TCP"
+          },
+          {
+            "containerPort": 448,
+            "protocol": "TCP"
+          }
+        ],
+	"env": [
+               {
+                  "name": "JMEM",
+                   "value": "128M"
+               }
+	],
+        "resources": {},
+        "volumeMounts": [
+          {
+            "name":"vol1",
+            "mountPath":"/var/cache/nginx"
+          },
+          {
+            "name":"vol1",
+            "mountPath":"/var/jenkins_home"
+          }
+        ],
+        "terminationMessagePath": "/dev/termination-log",
+        "imagePullPolicy": "IfNotPresent",
+        "capabilities": {},
+        "securityContext": {
+          "capabilities": {},
+          "privileged": false
+        }
+      }
+    ],
+    "volumes": [
+      {
+        "name":"vol1",
+        "emptyDir": {}
+      }
+    ],
+    "restartPolicy": "Always",
+    "dnsPolicy": "ClusterFirst",
+    "serviceAccount": ""
+  },
+  "status": {}
+}
