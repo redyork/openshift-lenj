@@ -2,16 +2,16 @@
   "kind": "Pod",
   "apiVersion": "v1",
   "metadata": {
-    "name": "lenj2",
+    "name": "lenj",
     "creationTimestamp": null,
     "labels": {
-      "name": "config-server"
+      "name": "lenj"
     }
   },
   "spec": {
     "containers": [
       {
-        "name": "config-server",
+        "name": "lenj",
         "image": "yorkred/lenj4",
         "ports": [
           {
